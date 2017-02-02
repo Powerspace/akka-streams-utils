@@ -4,7 +4,7 @@ Here, we can find some Akka Streams components Powerspace is using across its pr
 
 # AckConsumableAkkaSource
 
-It's a generic source that pull a source and can ack at the same time according to certain thresholds (size and count).
+It's a generic source that pull a source and can ack at the same time according to certain thresholds (size and count). 
 
 Example:
 ```scala
@@ -38,7 +38,7 @@ trait AckableStorage[T] { self: EventsStorage[T] =>
 }
 ```
 
-It's particularly useful when we are dealing with Google PubSub for instance.
+It's particularly useful when we are dealing with Google PubSub for instance where we need to ack every messages in batch.
 
 Note: the `consumeAsBytes` may not be necessary and may be removed in the future.
 
