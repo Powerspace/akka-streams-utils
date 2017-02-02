@@ -38,3 +38,4 @@ lazy val akkaDependencies = Seq(
 testOptions in Test += Tests.Argument("-oD")
 
 lazy val root = (project in file("."))
+
