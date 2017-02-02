@@ -9,6 +9,7 @@ import org.scalatest.{FlatSpec, GivenWhenThen, Matchers}
 
 import scala.collection.mutable
 import scala.concurrent.Future
+import scala.language.postfixOps
 
 class AckConsumableAkkaSourceTest extends FlatSpec with Matchers with GivenWhenThen {
 
@@ -26,7 +27,7 @@ class AckConsumableAkkaSourceTest extends FlatSpec with Matchers with GivenWhenT
     override def name: String = "storage-test"
     override def ack(ids: Seq[String]): Future[Unit] = {
       acknowledged ++= ids
-      Future.successful[Unit](null)
+      Future.successful[Unit]()
     }
   }
 
@@ -71,7 +72,7 @@ class AckConsumableAkkaSourceTest extends FlatSpec with Matchers with GivenWhenT
       override def hasNext: Boolean = true
 
       override def next(): List[Int] = {
-        var length = ((Math.random() * MAX_MESSAGES_PER_BATCH) + 102).toInt
+        val length = ((Math.random() * MAX_MESSAGES_PER_BATCH) + 102).toInt
         (0 to length).map(_ => autoincrement.next()).toList
       }
     }
