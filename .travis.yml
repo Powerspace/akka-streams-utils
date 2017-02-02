@@ -1,0 +1,9 @@
+language: scala
+sudo: false
+jdk:
+  - oraclejdk8
+before_install:
+    # See https://github.com/travis-ci/travis-ci/issues/4629#issuecomment-239493916
+  - rm ~/.m2/settings.xml
+scala:
+  - 2.11.8
