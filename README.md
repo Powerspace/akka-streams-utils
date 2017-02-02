@@ -8,7 +8,9 @@ It's a generic source that pull a source and can ack at the same time according 
 
 Example:
 ```scala
-val source = Source.fromGraph(new AckConsumableAkkaSource(consumer, ackMaxSize = 1000, ackPeriod = 2 seconds))
+val source = Source.fromGraph(new AckConsumableAkkaSource(consumer,
+                                                          ackMaxSize = 1000,
+                                                          ackPeriod = 2 seconds))
 source.map(_ + 1).runForeach(println)
 ```
 
