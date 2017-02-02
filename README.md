@@ -4,7 +4,7 @@ Here, we can find some Akka Streams components Powerspace is using across its pr
 
 # AckConsumableAkkaSource
 
-It's a generic source that pull a source and can ack at the same time according to certain thresholds (size and count). 
+It's a generic source that pulls a source and can ack the messages in the background according to certain thresholds (time and count). 
 
 Example:
 ```scala
@@ -16,7 +16,7 @@ source.map(_ + 1).runForeach(println)
 
 Every 1000 items or 2 seconds (if less than 1000 items), the consumer will be _acked_.
 
-It has to respect a given interface `AckConsumableStorage` defined as:
+The consumer has to respect a given interface `AckConsumableStorage` defined as:
 
 ```scala
 trait AckConsumableStorage[T] extends EventsStorage[T] with ConsumableStorage[T] with AckableStorage[T]
