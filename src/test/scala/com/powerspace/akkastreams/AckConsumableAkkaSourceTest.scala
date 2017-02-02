@@ -26,7 +26,7 @@ class AckConsumableAkkaSourceTest extends FlatSpec with Matchers with GivenWhenT
     override def name: String = "storage-test"
     override def ack(ids: Seq[String]): Future[Unit] = {
       acknowledged ++= ids
-      Future.successful[Void](null)
+      Future.successful[Unit](null)
     }
   }
 
