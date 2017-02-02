@@ -42,3 +42,7 @@ It's particularly useful when we are dealing with Google PubSub for instance whe
 
 Note: the `consumeAsBytes` may not be necessary and may be removed in the future.
 
+# TODO
+
+- Add the publish piece into build.sbt
+- Add PubSub consumer
